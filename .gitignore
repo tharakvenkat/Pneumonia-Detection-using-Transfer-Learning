@@ -1,0 +1,13 @@
+dataset/chest_xray/
+*.pt
+*.pth
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+outputs/
+.streamlit/
+.DS_Store
+kaggle.json
+*.egg-info/
+venv/
+.venv/
