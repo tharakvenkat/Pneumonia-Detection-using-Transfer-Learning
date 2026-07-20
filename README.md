@@ -1,46 +1,44 @@
 # 🫁 Pneumonia Detection using Transfer Learning
 
-A deep learning framework for **multi-class pneumonia classification** from chest X-ray images using **transfer learning** with **ResNet50** and **EfficientNet-B0**. The project explores both **feature extraction** and **end-to-end fine-tuning**, incorporating **Grad-CAM explainability** and comprehensive performance evaluation.
+A deep learning project for **multi-class pneumonia classification** from chest X-ray images using **transfer learning**. This project investigates multiple transfer learning strategies with **ResNet50** and **EfficientNet-B0**, comparing **feature extraction** and **end-to-end fine-tuning** approaches for automated pneumonia detection.
 
-> **Project Scope**
->
-> This project performs **3-class classification** of chest X-ray images into:
-> - Normal
-> - Bacterial Pneumonia
-> - Viral Pneumonia
->
-> Multiple transfer learning strategies were evaluated using **PyTorch** and the **timm** library, including feature extraction with Logistic Regression and fine-tuned CNNs. Model performance was assessed using **Accuracy, Precision, Recall, F1-score, ROC-AUC, Confusion Matrix,** and **Cohen's Kappa**.
+To improve model transparency, **Grad-CAM** is used to visualize the image regions that influence model predictions, making the classification process more interpretable.
 
 ---
 
-# 🚀 Features
+## 📖 Overview
 
-- Multi-class chest X-ray classification (Normal, Bacterial, Viral)
-- Transfer learning using **ResNet50** and **EfficientNet-B0**
-- Comparison of **feature extraction** and **fine-tuning** approaches
-- Hyperparameter optimization using **SAM Optimizer** and **OneCycleLR**
-- Explainable AI using **Grad-CAM**
-- Comprehensive evaluation using:
-  - Accuracy
-  - Precision
-  - Recall
-  - F1-score
-  - Confusion Matrix
-  - ROC-AUC
-  - Cohen's Kappa
-- Comparative analysis of multiple transfer learning strategies
+Pneumonia is one of the leading causes of respiratory illness worldwide. Chest X-ray analysis is commonly used for diagnosis, but manual interpretation can be time-consuming and requires expert knowledge.
+
+This project explores how transfer learning can improve pneumonia classification by leveraging pretrained convolutional neural networks and compares different transfer learning strategies on the same dataset.
+
+The project performs **three-class classification**:
+
+- 🟢 Normal
+- 🟠 Bacterial Pneumonia
+- 🔴 Viral Pneumonia
 
 ---
 
-# 📂 Project Structure
+# ✨ Features
 
-```
+- Multi-class chest X-ray classification
+- Transfer learning using pretrained CNN models
+- Comparison of feature extraction and fine-tuning
+- ResNet50 and EfficientNet-B0 backbones
+- Hyperparameter optimization using:
+  - SAM Optimizer
+  - OneCycle Learning Rate Scheduler
+- Explainable AI using Grad-CAM
+- Comprehensive performance evaluation
+- Visual comparison of multiple transfer learning approaches
+
+---
+
+# 📂 Repository Structure
+
+```text
 Pneumonia-Detection-using-Transfer-Learning/
-│
-├── README.md
-├── LICENSE
-├── requirements.txt
-├── Pneumonia_Detection.ipynb
 │
 ├── assets/
 │   ├── confusion_matrix.png
@@ -49,42 +47,52 @@ Pneumonia-Detection-using-Transfer-Learning/
 │   ├── model_comparison.png
 │   ├── roc_curve.png
 │   └── training_curves.png
+│
+├── .gitignore
+├── LICENSE
+├── README.md
+├── requirements.txt
+└── Pneumonia-Detection-using-Transfer-Learning.ipynb
 ```
 
 ---
 
 # 📊 Dataset
 
-This project uses the **Chest X-Ray Images (Pneumonia)** dataset from Kaggle.
+This project uses the **Chest X-Ray Images (Pneumonia)** dataset available on Kaggle.
 
-Dataset Classes:
+### Dataset Statistics
+
+| Split | Images |
+|-------|-------:|
+| Training | 4099 |
+| Validation | 1171 |
+| Testing | 586 |
+
+### Classes
 
 - Normal
 - Bacterial Pneumonia
 - Viral Pneumonia
 
-Images are divided into:
-
-- Training Set
-- Validation Set
-- Test Set
+The images were resized, normalized, and augmented before training using Albumentations.
 
 ---
 
 # 🏗️ Models Evaluated
 
-The following transfer learning approaches were implemented and compared:
+Four transfer learning strategies were implemented and compared.
 
 | Model | Strategy |
 |--------|----------|
 | ResNet50 + Logistic Regression | Feature Extraction |
 | EfficientNet-B0 + Logistic Regression | Feature Extraction |
-| ResNet50 | End-to-End Fine-Tuning |
-| EfficientNet-B0 | End-to-End Fine-Tuning |
+| ResNet50 | Fine-Tuning |
+| EfficientNet-B0 | Fine-Tuning |
 
 ---
 
-# 📈 Model Performance
+# 📈 Performance
 
 | Model | Training Strategy | Test Accuracy |
 |--------|-------------------|--------------:|
@@ -93,7 +101,7 @@ The following transfer learning approaches were implemented and compared:
 | EfficientNet-B0 | Fine-Tuning | **81.4%** |
 | **ResNet50** | **Fine-Tuning** | **85.3%** |
 
-The fine-tuned **ResNet50** achieved the highest overall performance among all evaluated models.
+Among all evaluated models, the **fine-tuned ResNet50** achieved the highest classification accuracy and demonstrated the best overall performance.
 
 ---
 
@@ -125,64 +133,85 @@ The fine-tuned **ResNet50** achieved the highest overall performance among all e
 
 ## Grad-CAM Visualization
 
-Grad-CAM was used to visualize the image regions that contributed most to the model's predictions, improving interpretability of the deep learning model.
+Grad-CAM highlights the regions of the chest X-ray that contribute most to the model's prediction, providing visual interpretability for the classification results.
 
 ![Grad-CAM](assets/gradcam_example.png)
 
 ---
 
-# 🛠️ Tech Stack
+# 🛠️ Technologies Used
 
-- Python
-- PyTorch
-- timm
-- Albumentations
-- NumPy
-- Pandas
-- OpenCV
-- Matplotlib
-- Scikit-learn
-- TorchMetrics
+-kaggle
+-albumentations
+-timm
+-scikit-learn
+-pandas
+-matplotlib
+-seaborn
+-torchmetrics
+-opencv-python
+-tqdm
+-torch
+-torchvision
+-numpy
+-Pillow
 
 ---
 
-# ▶️ Running the Project
+# 📋 Evaluation Metrics
 
-Clone the repository
+The models were evaluated using multiple performance metrics, including:
+
+- Accuracy
+- Precision
+- Recall
+- F1-Score
+- Confusion Matrix
+- ROC-AUC
+- Cohen's Kappa
+
+---
+
+# 🚀 Getting Started
+
+## Clone the Repository
 
 ```bash
-git clone https://github.com/<your-username>/Pneumonia-Detection-using-Transfer-Learning.git
+git clone https://github.com/tharakvenkat/Pneumonia-Detection-using-Transfer-Learning.git
 ```
 
-Install dependencies
+## Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Open the notebook
+## Run the Notebook
 
-```
-Pneumonia_Detection.ipynb
+Open
+
+```text
+Pneumonia-Detection-using-Transfer-Learning.ipynb
 ```
 
-Run all cells sequentially in Google Colab or Jupyter Notebook.
+using **Google Colab** or **Jupyter Notebook** and execute the notebook cells sequentially.
 
 ---
 
 # 📌 Key Highlights
 
-- Implemented and compared **four transfer learning configurations**
-- Achieved over **85% test accuracy** using a fine-tuned ResNet50
-- Improved model interpretability through **Grad-CAM**
-- Performed extensive evaluation beyond simple accuracy using multiple performance metrics
-- Compared feature extraction and fine-tuning strategies for medical image classification
+- Developed a deep learning pipeline for automated pneumonia detection.
+- Compared four different transfer learning strategies.
+- Achieved **85.3%** test accuracy using a fine-tuned ResNet50.
+- Applied Grad-CAM to improve model interpretability.
+- Performed comprehensive evaluation using multiple classification metrics.
+- Demonstrated the effectiveness of transfer learning for medical image analysis.
 
 ---
 
 # ⚠️ Medical Disclaimer
 
-This project is intended for **educational and research purposes only**. It is **not** a certified medical device and should **not** be used for clinical diagnosis or treatment decisions.
+This project is intended solely for **educational and research purposes**. It is **not** a certified medical device and should **not** be used for clinical diagnosis, treatment planning, or medical decision-making.
 
 ---
 
@@ -191,3 +220,5 @@ This project is intended for **educational and research purposes only**. It is *
 **Tharak Venkat Imadabattuni**
 
 Bachelor of Technology in Computer Science and Engineering
+
+GitHub: https://github.com/tharakvenkat
