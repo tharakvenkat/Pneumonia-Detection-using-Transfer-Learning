@@ -141,20 +141,35 @@ Grad-CAM highlights the regions of the chest X-ray that contribute most to the m
 
 # 🛠️ Technologies Used
 
--kaggle
--albumentations
--timm
--scikit-learn
--pandas
--matplotlib
--seaborn
--torchmetrics
--opencv-python
--tqdm
--torch
--torchvision
--numpy
--Pillow
+### Programming Language
+- Python
+
+### Deep Learning Frameworks
+- PyTorch
+- TorchVision
+- timm
+
+### Data Processing & Augmentation
+- NumPy
+- Pandas
+- Albumentations
+- OpenCV (opencv-python)
+- Pillow
+
+### Machine Learning & Evaluation
+- Scikit-learn
+- TorchMetrics
+
+### Visualization
+- Matplotlib
+- Seaborn
+
+### Development Environment
+- Google Colab
+- Kaggle (Dataset)
+
+### Utilities
+- tqdm
 
 ---
 
